@@ -1,6 +1,6 @@
-# Título del Proyecto
+# TPInfo - Proyecto final Informatorio
 
-TPInfo - Proyecto final Informatorio - Blog de noticias
+Blog de noticias
 
 ## Pre-requisitos 📋
 
@@ -11,7 +11,7 @@ En Linux:
 
 ```
 
-### Instalación 🔧
+## Instalación 🔧
 
 
 ```
