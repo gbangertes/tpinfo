@@ -27,5 +27,9 @@ En Linux:
 
 ## Autores ✒️
 
+*****Bangertes, Gabriel** - [gbangertes](https://github.com/gbangertes)
+**Fernandez, Cintia** - [bubacode](https://github.com/bubacode)
+**Linares, Fernando** - [hernanfernandolinares](https://github.com/hernanfernandolinares)
+
 ## Licencia 📄
 

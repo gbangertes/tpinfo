@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils import timezone
 
+# Create your models here.
 
 class Noticia(models.Model):
-    autor = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    autor = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
     titulo = models.CharField(max_length=150)
-    imagen = models.ImageField()
+    imagen = models.ImageField(upload_to='noticias')
     texto = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
