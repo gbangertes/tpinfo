@@ -27,6 +27,7 @@ SECRET_KEY = 'p93_a88m5+mpz3a)s8f2ep6=3iw2yu7*m7e68)v!0$xljd$w7^'
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'usuarios.Usuario'
 
 # Application definition
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.noticias',
+    'apps.usuarios',
 ]
 
 MIDDLEWARE = [
