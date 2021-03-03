@@ -9,13 +9,15 @@
 </head>
  <body>
   <div class="topnav" id="MyTopnav">
-	<a href="home" class="active">
+	<a href="{% url 'home' %}" class="active">
       <i class="bi bi-house-fill"></i>
 	</a>
-	<a href="home">Novedades</a>
-	<a href="home">Acerca de</a>
-	<a href="home">Donaciones</a>
-	<a href="home" id="buscar">
+	<a href="{% url 'recientes' %}">Noticias</a>
+	<a href="{% url 'nosotros' %}">Acerca de</a>
+	<a href="{% url 'donaciones' %}">Donaciones</a>
+	<a href="{% url 'login' %}">Ingresar</a>
+	<a href="{% url 'registro' %}">Registrarse</a>
+	<a href="{% url 'busqueda' %}" id="buscar">
 	  <i class="bi bi-search"></i>
 	</a>
 	<a href="javascript:void(0);" class="icon" onclick="respScreen()">

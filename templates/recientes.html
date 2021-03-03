@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  Noticias Recientes
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+  <ul>
+    {% for noticia in noticias %}
+	<li> <a href=''>{{noticia}}</a>, {{noticia.autor}}, {{noticia.created_date}} </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

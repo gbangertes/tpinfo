@@ -21,8 +21,12 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', views.home, name='home'),
+    path('', views.home, name='home'),
+    path('nosotros/', views.nosotros, name='nosotros'),
+    path('donaciones/', views.donaciones, name='donaciones'),
+    path('busqueda/', views.busqueda, name='busqueda'),
     path('noticias/', include('apps.noticias.urls')),
+    path('usuarios/', include('apps.usuarios.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
