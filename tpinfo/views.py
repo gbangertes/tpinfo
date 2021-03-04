@@ -6,8 +6,5 @@ def home(request):
 def nosotros(request):
     return render(request, 'nosotros.html')
 
-def donaciones(request):
-    return render(request, 'donaciones.html')
-
 def busqueda(request):
     return render(request, 'busqueda.html')
