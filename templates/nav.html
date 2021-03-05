@@ -14,7 +14,11 @@
 	</a>
 	<a href="{% url 'recientes' %}">Noticias</a>
 	<a href="{% url 'nosotros' %}">Acerca de</a>
+	{% if user.is_authenticated %}
+	<a href="{% url 'logout' %}">Salir</a>
+	{% else %}
 	<a href="{% url 'login' %}">Ingresar</a>
+	{% endif %}
 	<a href="{% url 'registro' %}">Registrarse</a>
 	<a href="{% url 'busqueda' %}" id="buscar">
 	  <i class="bi bi-search"></i>
