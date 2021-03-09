@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<p><strong>Autor:</strong> {{noticia.autor}}</p>
+<p><strong>Fecha:</strong> {{noticia.created_date}}</p>
+<img src="{{noticia.imagen}}"/>
+<h1>{{noticia.titulo}}</h1>
+<p style="white-space:pre-wrap;">{{noticia.texto}}</p>
+
+{% endblock %}
+
