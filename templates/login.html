@@ -26,7 +26,8 @@
 <body class="text-center">
     
 <main class="form-signin">
-  <form>
+  <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
     <img class="mb-4" src="{% static 'icons/icon-news.svg' %}">
     <h1 class="h3 mb-3 fw-normal">Iniciar sesi&oacute;n</h1>
     <label for="inputEmail" class="visually-hidden">Usuario</label>
