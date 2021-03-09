@@ -4,7 +4,9 @@ from .models import Noticia
 from apps.comentarios.models import  Comentario
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from .forms import NuevaNoticia
+
 
 # Create your views here.
 
@@ -20,6 +22,12 @@ class NoticiaDetailView(generic.DetailView):
 class NoticiaListView(generic.ListView):
     model = Noticia
     paginate_by = 10
+
+class NoticiaCreate(LoginRequiredMixin, CreateView):
+    model = Noticia
+    form_class = NuevaNoticia
+    template_name = "noticias/nueva_noticia.html"
+    success_url = reverse_lazy("noticia-list")
 
 class ComentarioCreate(LoginRequiredMixin, CreateView):
     model = Comentario

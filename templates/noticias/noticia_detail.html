@@ -7,6 +7,15 @@
 <img src="{{noticia.imagen}}"/>
 <h1>{{noticia.titulo}}</h1>
 <p style="white-space:pre-wrap;">{{noticia.texto}}</p>
+<h4>Comentarios</h4>
+{% for comentario in noticia.comentario_set.all %}
+
+<hr>
+<p>{{ comentario.autor }} ({{ comentario.created_date }})</p>
+<p>{{ comentario.texto }}</p>
+
+{% endfor %}
+
 
 {% endblock %}
 
