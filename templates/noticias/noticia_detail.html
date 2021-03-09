@@ -13,8 +13,17 @@
 <hr>
 <p>{{ comentario.autor }} ({{ comentario.created_date }})</p>
 <p>{{ comentario.texto }}</p>
+<hr>
 
 {% endfor %}
+
+{% if user.is_authenticated %}
+<div style="margin: 50px">
+<a href="{% url 'nuevo-comentario' noticia.id %}" >Agregar Comentario
+</a>
+</div>
+{% endif %}
+
 
 
 {% endblock %}
