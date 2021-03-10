@@ -61,7 +61,7 @@ class ComentarioCreate(LoginRequiredMixin, CreateView):
 class FiltroNoticias(generic.ListView):
 
     model = Noticia
-    template_name = "noticias/filtro_noticias.html"
+    template_name = "noticias/noticia_list.html"
 
     def get_queryset(self, *args, **kwargs):
         categoria = self.kwargs["pk"]

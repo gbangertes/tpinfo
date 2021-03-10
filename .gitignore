@@ -1,4 +1,7 @@
 tpinfo/settings/local.py
-*/__pycache__/*
-*.pyc
+*/__pycache__/
 media/
+*.py[co]
+*.pyc
+*.jpg
+*.jpeg

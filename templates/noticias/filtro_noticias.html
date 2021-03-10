@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="{% url 'nueva-noticia' %}">Agregar Noticia</a>
+<h1> Noticias recientes </h1>
+  <ul>
+    {% for noticia in noticia_list %}
+	<li> <a href='{{ noticia.get_absolute_url }}'>{{noticia.titulo}}</a>, {{noticia.autor}}, {{noticia.created_date}} </li>
+	{% empty %}
+	No se encontraron noticias.
+    {% endfor %}
+  </ul>
+{% endblock %}
+
