@@ -6,11 +6,12 @@ from django.utils import timezone
 
 class Noticia(models.Model):
     autor = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE)
+    categoria = models.ForeignKey('noticias.Categoria', on_delete=models.CASCADE)
     titulo = models.CharField(max_length=150)
     imagen = models.ImageField(upload_to='noticias')
     texto = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
-    published_date = models.DateTimeField(blank=True, null=True)
+    #published_date = models.DateTimeField(blank=True, null=True)
 
     class Meta:
         ordering = ['-created_date']
@@ -24,3 +25,9 @@ class Noticia(models.Model):
     
     def __str__(self):
         return self.titulo
+ 
+class Categoria(models.Model):
+    nombre = models.TextField(max_length=150)
+
+    def __str__(self):
+        return self.nombre
