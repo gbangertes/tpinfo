@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1> Categorias </h1>
+  <ul>
+    {% for categoria in categoria_list %}
+	<li> <a href='{{ categoria.get_absolute_url }}'>{{categoria.nombre}}</a>
+	</li>
+	{% empty %}
+	No se encontraron categorias.
+    {% endfor %}
+  </ul>
+{% endblock %}

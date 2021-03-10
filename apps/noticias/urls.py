@@ -8,4 +8,6 @@ urlpatterns = [
     path('nueva/', views.NoticiaCreate.as_view(), name="nueva-noticia"),
     #path('<int:pk>/comentarios/', views.ComentarioCreate.as_view(), name='noticia-comentario'),
     path('<int:pk>/nuevo_comentario/', views.ComentarioCreate.as_view(), name="nuevo-comentario"),
+    path('categorias/', views.CategoriaListView.as_view(), name="categoria-list"),
+    path('categorias/<int:pk>', views.FiltroNoticias.as_view(), name='filtro-categoria'),
     	]

@@ -31,3 +31,6 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nombre
+
+    def get_absolute_url(self):
+        return reverse('filtro-categoria', args=[str(self.id)])

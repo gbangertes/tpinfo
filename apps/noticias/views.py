@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import Noticia 
+from .models import Noticia, Categoria 
 from apps.comentarios.models import Comentario
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
@@ -57,3 +57,20 @@ class ComentarioCreate(LoginRequiredMixin, CreateView):
         form.instance.autor = self.request.user
         form.instance.noticia = get_object_or_404(Noticia, pk=self.kwargs['pk'])
         return super(ComentarioCreate, self).form_valid(form)
+
+class FiltroNoticias(generic.ListView):
+
+    model = Noticia
+    template_name = "noticias/filtro_noticias.html"
+
+    def get_queryset(self, *args, **kwargs):
+        categoria = self.kwargs["pk"]
+        return Noticia.objects.filter(categoria=categoria)
+
+class CategoriaListView(generic.ListView):
+    model = Categoria
+    template_name = "noticias/lista_categorias.html"
+
+
+
+
