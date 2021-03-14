@@ -12,7 +12,14 @@
 
 <hr>
 <p>{{ comentario.autor }} ({{ comentario.created_date }})</p>
-<p>{{ comentario.texto }}</p>
+<p>{{ comentario.texto }}</p> 
+{% if user.id == comentario.autor.id %}
+<p>
+	<a href="{% url 'comentario-delete' comentario.id %}">Eliminar Comentario</a> 
+	<a href="{% url 'comentario-update' comentario.id %}">Editar Comentario</a>
+
+</p>
+{% endif %}
 <hr>
 
 {% endfor %}

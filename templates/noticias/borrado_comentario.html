@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="POST">{% csrf_token %}
+	<p>Se eliminará el comentario "{{ object }}".</p>
+	<p>¿Desea continuar?</p>
+	<input type="submit" value="Confirmar">
+</form>
+
+{% endblock %}
