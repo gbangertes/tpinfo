@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{% url 'nueva-noticia' %}">Agregar Noticia</a>
+<div style="margin: 50px;">
+<form method="GET">
+	{{filter.form.as_p}}
+	<button type="submit">Buscar</button>
+</form>
+</div>	
+<h1>Resultados:</h1>
+  <ul>
+    {% for noticia in filter.qs %}
+	<li> <a href='{{ noticia.get_absolute_url }}'>{{noticia.titulo}}</a>, {{noticia.autor}}, {{noticia.created_date}} 
+		{% if user.id == noticia.autor.id %}        
+		<a href="{% url 'noticia-delete' noticia.id %}">Eliminar</a> 
+		<a href="{% url 'noticia-update' noticia.id %}">Editar</a></li>
+		{% endif %}
+	{% empty %}
+	No se encontraron noticias.
+    {% endfor %}
+  </ul>
+{% endblock %}
+

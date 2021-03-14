@@ -5,6 +5,8 @@ from apps.comentarios.models import Comentario
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse, reverse_lazy
+from django_filters.views import FilterView
+from .filters import FiltroBusqueda
 from .forms import NuevaNoticia, NuevoComentario, FormularioFecha
 
 
@@ -126,3 +128,6 @@ class ComentarioUpdate(LoginRequiredMixin, UpdateView):
         return self.model.objects.filter(autor=autor)
 
 
+class BusquedaNoticia(FilterView):
+    filterset_class = FiltroBusqueda
+    template_name = 'noticias/busqueda.html'
