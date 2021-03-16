@@ -1,0 +1,26 @@
+body {
+	background-color: #f0f0f0;
+	margin: 10%;
+}
+
+.boton{
+	background: #5E81AC;
+	border: 4px solid #000;
+	color: black solid;
+	text-align: center;
+}
+.centrado{
+  width: 33.33%;
+  display: flex;
+  justify-content: center
+}
+
+.boton_centrado{
+	background: #5E81AC;
+	border: 4px solid #000;
+	color: black solid;
+	text-align: center;
+	width: 33.33%
+	display: flex;
+	justify-content: center
+}
