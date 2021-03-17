@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>¡FELICIDADES!¡Su usuario se creo correctamente!</p>
+<div class="col-md-6 float-center ">
+<div class="card my-6">
+        <h5 class="card-header">¡FELICIDADES!</h5>
+    <div class="card-body">
+        <p class="card-text"> Su usuario se creo correctamente</p>
+        <a href="{% url 'login' %}"
+           class="btn btn-danger" >Iniciar Sesión</a>
+    </div>
+</div>
+</div>
 {% endblock %}

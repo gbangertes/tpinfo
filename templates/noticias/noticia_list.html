@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block content %}
+
+
+<h1 align="center"> NOTICIAS RECIENTES </h1>
+
+  </ul>
 <br>
-<link href="{% static 'css/nav/noticia_list.css' %}" rel="stylesheet">
-<div class="centrado">
-<a class="boton_centrado" href="{% url 'nueva-noticia' %}">Agregar Noticia</a>
+<div class="col-md-4 float-left ">
+<a class="btn btn-danger" href="{% url 'nueva-noticia' %}">Agregar Noticia</a>
 </div>
-<div>
-<form method="GET" enctype="multipart/form-data">
-	{{fecha.as_p}}
-	<button class="boton" type="submit">Enviar</button>
-</form>
+
 </div>	
-<h1> Noticias recientes </h1>
+<br>
+<br>
   <ul>
     {% for noticia in noticia_list %}
+	
 	<li> <a href='{{ noticia.get_absolute_url }}'>{{noticia.titulo}}</a>, {{noticia.autor}}, {{noticia.created_date}} 
 		{% if user.id == noticia.autor.id %}        
 		<a href="{% url 'noticia-delete' noticia.id %}">Eliminar</a> 
@@ -25,4 +27,5 @@
 	No se encontraron noticias.
     {% endfor %}
   </ul>
+  
 {% endblock %}

@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<a href="{% url 'nueva-noticia' %}">Agregar Noticia</a>
-<div style="margin: 50px;">
+
+<h1 align="center"> BUSCADOR AVANZADO DE NOTICIAS </h1>
 <form method="GET">
 	{{filter.form.as_p}}
-	<button type="submit">Buscar</button>
+	<button class="btn btn-danger" type="submit">Buscar</button>
 </form>
 </div>	
 <h1>Resultados:</h1>

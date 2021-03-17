@@ -39,19 +39,16 @@ class NoticiaCreate(LoginRequiredMixin, CreateView):
     template_name = "noticias/nueva_noticia.html"
     success_url = reverse_lazy("noticia-list")
 
-    #def get_context_data(self, **kwargs):
-     #   context = super(NoticiaCreate, self).get_context_data(**kwargs)
-      #  context['noticia'] = get_object_or_404(Noticia, pk=self.kwargs['pk'])
-       # return context
+    
 
     def form_valid(self, form):
         form.instance.autor = self.request.user
-        #form.instance.noticia = get_object_or_404(Noticia, pk=self.kwargs['pk'])
+        
         return super(NoticiaCreate, self).form_valid(form)
 
 class ComentarioCreate(LoginRequiredMixin, CreateView):
     model = Comentario
-    #fields = ['texto', ]
+    
     form_class = NuevoComentario
     template_name = "noticias/formulario_comentario.html"
     success_url = reverse_lazy("noticia-list")

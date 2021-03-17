@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-{% load static %}
 
 {% block content %}
-<link href="{% static 'css/nav/registro.css' %}" rel="stylesheet">
-	<div>
+	
+</style>
+
+	<div style="margin: 50px;">
 		<form method="POST" enctype="multipart/form-data">
 			{% csrf_token %}
 			{{form.as_p}}
 
-			<input class= "boton" type="submit" name="registrarse" value="Registrarse">
+			<button type="submit" class="btn btn-danger">Registrarse</button>
 
 
 		</form>

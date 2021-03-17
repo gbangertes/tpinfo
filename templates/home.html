@@ -1,5 +1,64 @@
-{% extends "base.html" %}
-
+{% extends "base.html" %} 
+{% load static %}
 {% block content %}
-<p>HOME</p>
-{% endblock %}
+
+
+<style >
+	body { 
+  background: url("static/media/home.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+	
+</style>
+<style>
+    body {
+        font-family: "Gill Sans Extrabold", helvetica;
+        font-size: 16px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: blue;
+    }
+    
+    .card {
+        box-shadow: 0 32px 48px #E3E7EB;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h1 class=" site-heading my-6 mt-2 text-white"align="center"> INFORMABLOG </h1>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+<style>
+        .card{
+            box-shadow: 0 16px 38px #fdfdfd;
+        }
+       
+</style>
+
+<!-- Sidebar Widgets Column -->
+<div class="col-md-3 float-right ">
+<div class="card my-3">
+        <h5 class="card-header">Portal de Noticias</h5>
+    <div class="card-body">
+        <p class="card-text "> ULTIMAS NOVEDADES</p>
+        <a href="{% url 'noticia-list' %}"
+           class="btn btn-danger" >Visitar</a>
+    </div>
+</div>
+</div>
+
+{%endblock%}
