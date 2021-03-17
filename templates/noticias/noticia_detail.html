@@ -5,12 +5,13 @@
 
 <p><strong>Autor:</strong> {{noticia.autor}}</p>
 <p><strong>Fecha:</strong> {{noticia.created_date}}</p>
-<img src="{{noticia.imagen.url}}" width="300" height="300"/>
+<p><strong>Categor&iacute;a:</strong> {{noticia.categoria}}</p>
 <h1>{{noticia.titulo}}</h1>
+<img style="float:left; margin:10px" src="{{noticia.imagen.url}}" height="300"/>
 <p style="white-space:pre-wrap;">{{noticia.texto}}</p>
+
 <h4>Comentarios</h4>
 {% for comentario in noticia.comentario_set.all %}
-
 <hr>
 <p>{{ comentario.autor }} ({{ comentario.created_date }})</p>
 <p>{{ comentario.texto }}</p> 

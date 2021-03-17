@@ -1,5 +1,4 @@
 from .models import Noticia
-# from django_filters import FilterSet
 import django_filters
 from django.forms.widgets import SelectDateWidget
 

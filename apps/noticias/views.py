@@ -10,18 +10,9 @@ from .filters import FiltroBusqueda
 from .forms import NuevaNoticia, NuevoComentario, FormularioFecha
 
 
-
-
-# Create your views here.
-
-# def recientes(request):
-#     recientes = Noticia.objects.all().reverse()[:10]
-#     ctx = {}
-#     ctx["noticias"] = recientes
-#     return render(request, "recientes.html", ctx)
-
 class NoticiaDetailView(generic.DetailView):
     model = Noticia
+
 
 class NoticiaListView(generic.ListView):
     model = Noticia
@@ -30,7 +21,7 @@ class NoticiaListView(generic.ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['fecha'] = FormularioFecha
-        return context  
+        return context
 
 
 class NoticiaCreate(LoginRequiredMixin, CreateView):
@@ -39,20 +30,17 @@ class NoticiaCreate(LoginRequiredMixin, CreateView):
     template_name = "noticias/nueva_noticia.html"
     success_url = reverse_lazy("noticia-list")
 
-    
-
     def form_valid(self, form):
         form.instance.autor = self.request.user
-        
         return super(NoticiaCreate, self).form_valid(form)
+
 
 class ComentarioCreate(LoginRequiredMixin, CreateView):
     model = Comentario
-    
     form_class = NuevoComentario
     template_name = "noticias/formulario_comentario.html"
     success_url = reverse_lazy("noticia-list")
-    
+
     def get_context_data(self, **kwargs):
         context = super(ComentarioCreate, self).get_context_data(**kwargs)
         context['noticia'] = get_object_or_404(Noticia, pk=self.kwargs['pk'])
@@ -63,8 +51,8 @@ class ComentarioCreate(LoginRequiredMixin, CreateView):
         form.instance.noticia = get_object_or_404(Noticia, pk=self.kwargs['pk'])
         return super(ComentarioCreate, self).form_valid(form)
 
-class FiltroNoticias(generic.ListView):
 
+class FiltroNoticias(generic.ListView):
     model = Noticia
     template_name = "noticias/noticia_list.html"
 
@@ -83,9 +71,6 @@ class CategoriaListView(generic.ListView):
     template_name = "noticias/lista_categorias.html"
 
 
-
-
-
 class NoticiaDelete(LoginRequiredMixin, DeleteView):
     model = Noticia
     template_name = "noticias/borrado_noticia.html"
@@ -95,6 +80,7 @@ class NoticiaDelete(LoginRequiredMixin, DeleteView):
         autor = self.request.user
         return self.model.objects.filter(autor=autor)
 
+
 class ComentarioDelete(LoginRequiredMixin, DeleteView):
     model = Comentario
     template_name = "noticias/borrado_comentario.html"
@@ -103,6 +89,7 @@ class ComentarioDelete(LoginRequiredMixin, DeleteView):
     def get_queryset(self):
         autor = self.request.user
         return self.model.objects.filter(autor=autor)
+
 
 class NoticiaUpdate(LoginRequiredMixin, UpdateView):
     model = Noticia
@@ -117,7 +104,7 @@ class NoticiaUpdate(LoginRequiredMixin, UpdateView):
 class ComentarioUpdate(LoginRequiredMixin, UpdateView):
     model = Comentario
     template_name = "noticias/editar_comentario.html"
-    fields = ["texto",  ]
+    fields = ["texto", ]
     success_url = reverse_lazy("noticia-list")
 
     def get_queryset(self):

@@ -9,11 +9,12 @@ class NuevaNoticia(forms.ModelForm):
         model = Noticia
         fields = ["titulo", "categoria", "imagen", "texto"]
 
+
 class NuevoComentario(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ["texto",  ]
+        fields = ["texto", ]
+
 
 class FormularioFecha(forms.Form):
     fecha = forms.DateField(widget=SelectDateWidget())
-
